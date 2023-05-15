@@ -28,3 +28,20 @@ mock.onPut(/\/api\/machines\/\d+/).reply(config => {
         return [404];
     }
 });
+
+mock.onDelete(/\/api\/machines\/\d+/).reply(config => {
+    const id = parseInt(config.url.split('/').pop());
+    const index = machines.findIndex(m => m.machineID == id);
+    if (index > -1) {
+        machines.splice(index, 1);
+        return [204];
+    } else {
+        return [404];
+    }
+});
+const machineParentGroupSelect = document.getElementById('machineParentGroupID');
+document.getElementById('addMachineButton').addEventListener('click', () => {
+    document.getElementById('machineForm').reset();
+    document.getElementById('machineID').value = null;
+    document.getElementById('machineForm').style.display = 'block';
+});
