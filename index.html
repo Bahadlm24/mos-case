@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MOS Yazılım</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .content-section {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#machinesSection">Makineler</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#productsSection">Ürünler</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#machineContentsSection">Makine İçerikleri</a>
+                </li>
+            </ul>
+        </nav>
+        <section id="machinesSection" class="content-section">
+        <h1>Machines</h1>
+        <table class="table" id="machinesTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Parent Group ID</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <button class="btn btn-primary" id="addMachineButton">Add Machine</button>
+        <form id="machineForm" class="mt-3" style="display: none;">
+            <input type="hidden" id="machineID">
+            <div class="form-group">
+                <label for="machineName">Name</label>
+                <input type="text" class="form-control" id="machineName" placeholder="Enter name">
+            </div>
+            <div class="form-group">
+                <label for="machineDescription">Description</label>
+                <input type="text" class="form-control" id="machineDescription" placeholder="Enter description">
+            </div>
+            <div class="form-group">
+                <label for="machineParentGroupID">Parent Group ID</label>
+                <select class="form-control" id="machineParentGroupID" placeholder="Enter parent group ID">
+                
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary" id="submitMachineButton">Save</button>
+        </form>
+    </section>
+        <section id="productsSection" class="content-section">
+        <h2>Ürünler</h2>
+        <table class="table" id="productsTable">
+            <thead>
+                <tr>
+                    <th>Ürün ID'si</th>
+                    <th>Ürün Adı</th>
+                    <th>Ürün Açıklaması</th>
+                    <th>Ürün Üst Grup ID'si</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <button class="btn btn-primary" id="addProductButton">Add Product</button>
+        <form id="productForm" class="mt-3" style="display: none;">
+            <input type="hidden" id="productID">
+            <div class="form-group">
+                <label for="productName">Ürün Adı</label>
+                <input type="text" class="form-control" id="productName" placeholder="Ürün adını girin">
+            </div>
+            <div class="form-group">
+                <label for="productDescription">Ürün Açıklaması</label>
+                <input type="text" class="form-control" id="productDescription" placeholder="Ürün açıklamasını girin">
+            </div>
+            <div class="form-group">
+                <label for="productParentGroupID">Ürün Üst Grup ID'si</label>
+                <select class="form-control" id="productParentGroupID" placeholder="Ürün üst grup ID'sini girin">
+                
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary" id="submitProductButton">Kaydet</button>
+        </form>
+        </section>
+
+        <section id="machineContentsSection" class="content-section">
+            <h2>Makine İçerikleri</h2>
+            <table class="table" id="machineContentsTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Product ID</th>
+                        <th>Quantity</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <button class="btn btn-primary" id="addMachineContentButton">Add Machine Content</button>
+            <form id="machineContentForm" class="mt-3" style="display: none;">
+                <input type="hidden" id="machineContentID">
+                <div class="form-group">
+                    <label for="productID">Product ID</label>
+                    <select class="form-control" id="productID" placeholder="Enter product ID">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" class="form-control" id="quantity" placeholder="Enter quantity">
+                </div>
+                <button type="submit" class="btn btn-primary" id="submitMachineContentButton">Save</button>
+            </form>
+    </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios-mock-adapter/dist/axios-mock-adapter.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
